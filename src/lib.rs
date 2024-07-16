@@ -46,7 +46,7 @@ impl<S, B: Builder> Store<S, B> {
             if !self.check_dependencies(&path)? {
                 return Ok(None);
             }
-            Ok(Some((path.clone(), serde_json::from_reader(File::open(path.join(".re"))?)?)))
+            Ok(Some((path.clone(), serde_json::from_reader(File::open(path.join(".output"))?)?)))
         } else {
             Ok(None)
         }

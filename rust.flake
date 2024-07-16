@@ -1,0 +1,14 @@
+#! cmd
+return function(x)
+    args = flakes.default {
+        nixpkg = function() flakes.require("nixpkg") end,
+        run = function() false end,
+    } (x)
+    deps = flakes.require {
+        rustc = args.nixpkg("rustc"),
+        cargo = args.nixpkg("cargo"),
+        git = args.nixpkg("git"),
+    }
+    deps.git:clone(args.git, ".")
+    if args.run then flakes.shell("cargo run --release") end
+end
