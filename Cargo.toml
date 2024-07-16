@@ -6,3 +6,10 @@ license = "MIT"
 description = "nix alternative"
 
 [dependencies]
+clap = { version = "4.5.9", features = ["derive"] }
+gc-arena = "0.5.3"
+gc-arena-derive = "0.5.3"
+piccolo = "0.3.3"
+piccolo-util = { version = "0.3.3", features = ["serde"] }
+serde = "1.0.204"
+serde_json = "1.0.120"
